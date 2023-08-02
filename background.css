@@ -1,0 +1,38 @@
+body {
+  background: linear-gradient(-45deg, #f8f8f8, #dde5fc, #f8f8f8, #dde5fc);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  perspective: 1px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+@keyframes gradientAnimation {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
+
+
+/* Animation for logo text */
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.logo-text {
+    animation: slideIn 0.8s ease;
+    font-family: 'Fredoka One', cursive; /* Use the custom font 'Fredoka One' */
+}   

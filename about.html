@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Novel Library - About</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+            <span class="logo-text">Novel Library</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#" class="active">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="novels-grid" id="novels">
+            <!-- Novel boxes will be dynamically added here -->
+        </div>
+    </main>
+
+    <script src="scripts.js"></script>
+    <!-- Your HTML code for about.html -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const novelsGrid = document.getElementById("novels");
+        
+            // Retrieve the novels from local storage
+            let storedNovels = JSON.parse(localStorage.getItem("novels")) || [];
+        
+            // Display the novels on the about.html page
+            storedNovels.forEach(novel => {
+                const novelBox = document.createElement("div");
+                novelBox.classList.add("novel-box");
+            
+                const novelCoverBox = document.createElement("div");
+                novelCoverBox.classList.add("novel-cover-box");
+                const coverImg = document.createElement("img");
+                coverImg.src = novel.cover;
+                coverImg.alt = novel.name;
+                novelCoverBox.appendChild(coverImg);
+            
+                const novelDetailsBox = document.createElement("div");
+                novelDetailsBox.classList.add("novel-details-box");
+                const title = document.createElement("h3");
+                title.textContent = novel.name;
+            
+                const description = document.createElement("p");
+                const words = novel.description.split(" ");
+                if (words.length > 34) {
+                    const descriptionShort = words.slice(0, 34).join(" ");
+                    const descriptionRest = words.slice(34).join(" ");
+                    description.innerHTML = `${descriptionShort} <span class="read-more">${descriptionRest}</span>`;
+                    description.addEventListener("click", function() {
+                        const readMoreOption = this.querySelector(".read-more");
+                        readMoreOption.classList.toggle("show");
+                    });
+                } else {
+                    description.textContent = novel.description;
+                }
+            
+                const link = document.createElement("a");
+                link.href = novel.link;
+                link.textContent = "Read Novel";
+            
+                novelDetailsBox.appendChild(title);
+                novelDetailsBox.appendChild(description);
+                novelDetailsBox.appendChild(link);
+            
+                novelBox.appendChild(novelCoverBox);
+                novelBox.appendChild(novelDetailsBox);
+                novelsGrid.appendChild(novelBox);
+            });
+        });
+    </script>
+  
+</body>
+</html>

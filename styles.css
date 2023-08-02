@@ -1,0 +1,287 @@
+/* General styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+}
+
+/* Header styles */
+header {
+  background-color: #555;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 50px;
+  height: auto;
+  margin-right: 10px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav li {
+  margin-right: 20px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+nav a.active {
+  background-color: #777;
+}
+
+nav a:hover {
+  background-color: #ffa500;
+  transform: scale(1.1);
+}
+
+/* Main styles */
+main {
+  padding: 20px;
+}
+
+/* Novel submission form styles */
+.novel-submission {
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.novel-submission h2 {
+  color: #555;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.novel-submission label {
+  display: block;
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 16px;
+}
+
+.novel-submission input,
+.novel-submission textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.novel-submission button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.novel-submission button:hover {
+  background-color: #444;
+}
+
+/* Novel grid styles */
+.novels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 20px;
+}
+
+/* Novel box styles */
+.novel-box {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.novel-cover-box {
+  /* Add any specific styles for the novel cover box here */
+}
+
+.novel-cover-box img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.novel-details-box {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.novel-details-box a {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #333;
+  color: #ec0d0d;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+/* Rest of the styles related to the novel details box, hover effects, and animations */
+/* ... */
+
+
+/* ... (Previous styles) */
+
+.novel-details-box h3 {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.novel-details-box p {
+  margin: 0;
+  overflow: hidden;
+}
+
+.novel-details-box .read-more {
+  display: none;
+  font-style: italic;
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+.novel-details-box.expanded .read-more {
+  display: inline;
+  opacity: 1;
+  max-height: 100px;
+}
+
+/* Hover effect and animation for the novel boxes */
+.novel-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Animation for changing background color on hover */
+.novel-details-box a:hover {
+  background-color: var(--random-color);
+}
+
+/* Animation for changing text color on hover */
+.novel-details-box a:hover {
+  color: #eb0f0f;
+}
+
+/* Animation for changing background color on read more option hover */
+.novel-details-box .read-more:hover {
+  background-color: var(--random-color);
+}
+
+/* Animation for changing text color on read more option hover */
+.novel-details-box .read-more:hover {
+  color: #000000;
+}
+
+/* Interactive background parallax effect for long-term reading */
+body {
+  background: linear-gradient(-45deg, #f8f8f8, #dde5fc, #f8f8f8, #dde5fc);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  perspective: 1px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+@keyframes gradientAnimation {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
+
+/* Define the animation keyframes */
+@keyframes jump {
+  0%, 100% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-5px);
+  }
+}
+
+/* Apply the animation to the link on hover */
+.novel-details-box a:hover {
+  animation: jump 0.5s infinite alternate;
+}
+
+/* Interactive background parallax effect for long-term reading */
+body {
+  background: linear-gradient(-45deg, #f8f8f8, #dde5fc, #f8f8f8, #dde5fc);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  perspective: 1px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+@keyframes gradientAnimation {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
+
+/* Define the animation keyframes */
+@keyframes jump {
+  0%, 100% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-5px);
+  }
+}
+
+/* Apply the animation to the link on hover */
+.novel-details-box a:hover {
+  animation: jump 0.5s infinite alternate;
+}

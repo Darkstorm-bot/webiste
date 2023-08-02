@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Novel Library - Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+            <span class="logo-text">Novel Library</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="novel-submission">
+            <h2>Submit a Novel</h2>
+            <form id="novel-form">
+                <label for="novel-title">Novel Name</label>
+                <input type="text" id="novel-title" required>
+
+                <label for="cover-url">Cover Image URL</label>
+                <input type="text" id="cover-url" required>
+
+                <label for="novel-desc">Description</label>
+                <textarea id="novel-desc" rows="4" required></textarea>
+
+                <label for="novel-link">Read Link</label>
+                <input type="url" id="novel-link" required>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <div class="novels-grid" id="novels">
+            <!-- Novel boxes will be dynamically added here -->
+        </div>
+    </main>
+
+    <script src="scripts.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          const novelForm = document.getElementById("novel-form");
+          const novelsGrid = document.getElementById("novels");
+      
+          novelForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+      
+            const novelName = document.getElementById("novel-title").value;
+            const novelCover = document.getElementById("cover-url").value;
+            const novelDescription = document.getElementById("novel-desc").value;
+            const novelLink = document.getElementById("novel-link").value;
+      
+            if (novelName && novelCover && novelDescription && novelLink) {
+              const novel = {
+                name: novelName,
+                cover: novelCover,
+                description: novelDescription,
+                link: novelLink,
+              };
+      
+              // Save the novel to local storage
+              let storedNovels = JSON.parse(localStorage.getItem("novels")) || [];
+              storedNovels.push(novel);
+              localStorage.setItem("novels", JSON.stringify(storedNovels));
+      
+              // Clear the form after submission
+              novelForm.reset();
+            }
+          });
+        });
+      
+        // Rest of the JavaScript code
+      </script>
+</body>
+</html>
