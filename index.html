@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novel Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Novel Website</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#novel">Novel</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main>
+            <section id="home">
+                <h2>Welcome to Novel Website</h2>
+                <p>This is a place where you can post links and descriptions about novels.</p>
+            </section>
+
+            <section id="novel">
+                <h2>Novel Tab</h2>
+                <p>Post your novel links and descriptions here:</p>
+                <form id="novelForm">
+                    <input type="text" id="novelLink" placeholder="Enter novel link">
+                    <input type="text" id="novelCover" placeholder="Enter cover image URL">
+                    <input type="text" id="novelTitle" placeholder="Enter novel title">
+                    <textarea id="novelDescription" placeholder="Enter novel description"></textarea>
+                    <button type="button" onclick="submitNovel()">Submit</button>
+                </form>
+                <div id="novelPosts" class="grid-container">
+                    <!-- Novel posts will appear here dynamically using JavaScript -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
