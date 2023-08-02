@@ -1,39 +1,44 @@
-// Fetch video data from a server or database
-function fetchVideos() {
-  // Simulated data for demonstration purposes
-  const videos = [
-    { id: 1, title: "Video 1", url: "video1.mp4" },
-    { id: 2, title: "Video 2", url: "video2.mp4" },
-    { id: 3, title: "Video 3", url: "video3.mp4" },
-  ];
+// ... (previous code) ...
 
-  return Promise.resolve(videos);
+function submitNovel() {
+    const novelLink = document.getElementById('novelLink').value;
+    const novelCover = document.getElementById('novelCover').value;
+    const novelTitle = document.getElementById('novelTitle').value;
+    const novelDescription = document.getElementById('novelDescription').value;
+
+    if (novelLink.trim() === '' || novelCover.trim() === '' || novelTitle.trim() === '' || novelDescription.trim() === '') {
+        alert('Please fill all the fields before submitting.');
+        return;
+    }
+
+    const novelPost = document.createElement('div');
+    novelPost.classList.add('novel-post');
+
+    const coverImage = document.createElement('img');
+    coverImage.src = novelCover;
+    novelPost.appendChild(coverImage);
+
+    const titleBox = document.createElement('div');
+    titleBox.classList.add('novel-title-box');
+    const titleHeading = document.createElement('h3');
+    titleHeading.textContent = novelTitle;
+    titleBox.appendChild(titleHeading);
+    novelPost.appendChild(titleBox);
+
+    const descriptionBox = document.createElement('div');
+    descriptionBox.classList.add('novel-description-box');
+    const descriptionParagraph = document.createElement('p');
+    descriptionParagraph.textContent = novelDescription;
+    descriptionBox.appendChild(descriptionParagraph);
+    novelPost.appendChild(descriptionBox);
+
+    const linkButton = document.createElement('a');
+    linkButton.href = novelLink;
+    linkButton.textContent = 'Read More';
+    novelPost.appendChild(linkButton);
+
+    const novelPosts = document.getElementById('novelPosts');
+    novelPosts.appendChild(novelPost);
+
+    document.getElementById('novelForm').reset();
 }
-
-// Display the videos on the website
-function displayVideos(videos) {
-  const videosSection = document.getElementById("videos");
-
-  videos.forEach((video) => {
-    const videoElement = document.createElement("div");
-    videoElement.innerHTML = `
-      <h3>${video.title}</h3>
-      <video src="${video.url}" controls></video>
-    `;
-    videosSection.appendChild(videoElement);
-  });
-}
-
-// Fetch and display the latest videos
-function showLatestVideos() {
-  fetchVideos()
-    .then((videos) => {
-      displayVideos(videos);
-    })
-    .catch((error) => {
-      console.error("Error fetching videos:", error);
-    });
-}
-
-// Call the function to show the latest videos on page load
-window.addEventListener("DOMContentLoaded", showLatestVideos);
