@@ -3,44 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Novel Website</title>
+    <title>Futuristic Novel Platform</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Novel Website</h1>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#novel">Novel</a></li>
-                </ul>
-            </nav>
-        </header>
-        
-        <main>
-            <section id="home">
-                <h2>Welcome to Novel Website</h2>
-                <p>This is a place where you can post links and descriptions about novels.</p>
-            </section>
-
-            <section id="novel">
-                <h2>Novel Tab</h2>
-                <p>Post your novel links and descriptions here:</p>
+    <header>
+        <h1>Futuristic Novel Platform</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#novel">Novel</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home">
+            <div class="container">
+                <h2>Welcome to our Luxurious Site</h2>
+                <p>Experience the world of luxury and imagination as you delve into our captivating novels.</p>
+            </div>
+        </section>
+        <section id="novel">
+            <div class="container">
+                <h2>Novel</h2>
                 <form id="novelForm">
-                    <input type="text" id="novelLink" placeholder="Enter novel link">
-                    <input type="text" id="novelCover" placeholder="Enter cover image URL">
-                    <input type="text" id="novelTitle" placeholder="Enter novel title">
-                    <textarea id="novelDescription" placeholder="Enter novel description"></textarea>
-                    <button type="button" onclick="submitNovel()">Submit</button>
+                    <label for="cover">Cover Image:</label>
+                    <input type="url" id="cover" placeholder="Enter cover image URL" required>
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" placeholder="Enter title" required>
+                    <label for="description">Description:</label>
+                    <textarea id="description" placeholder="Enter description" required></textarea>
+                    <label for="link">Link:</label>
+                    <input type="url" id="link" placeholder="Enter link URL" required>
+                    <button type="submit">Submit</button>
                 </form>
-                <div id="novelPosts" class="grid-container">
-                    <!-- Novel posts will appear here dynamically using JavaScript -->
-                </div>
-            </section>
-        </main>
-    </div>
-
+                <div class="grid-container" id="novelGrid"></div>
+            </div>
+        </section>
+    </main>
     <script src="script.js"></script>
 </body>
 </html>
